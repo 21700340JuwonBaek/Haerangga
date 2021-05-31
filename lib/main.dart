@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:haerangga/logic/mysql.dart';
+import 'nation_info.dart';
 
 void main() {
   runApp(MyApp());
@@ -89,6 +90,9 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
+      drawer:Drawer(
+        child: MyDrawer(),
+      ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
@@ -126,4 +130,56 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+}
+class MyDrawer extends StatefulWidget{
+  @override
+  _MyDrawer createState(){
+    print("MyDrawer - createState() called");
+    return _MyDrawer();
+  }
+
+}
+
+class _MyDrawer extends State<MyDrawer>{
+
+  @override
+  Widget build(BuildContext context) {
+
+    print("MyDrawer - build() called");
+    return Drawer(
+        child:ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              child:Text(""),
+              decoration: BoxDecoration(
+                  color:Colors.orange
+              ),
+            ),
+            ListTile(
+                title:Text("Nation Info.",
+                    style:TextStyle(fontSize:25)),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context)=> Nation_info() ));
+                }
+
+            ),
+            ListTile(
+              title:Text("Recruiting",
+                  style:TextStyle(fontSize:25)),
+            ),
+            ListTile(
+              title:Text("Dispatch Stat.",
+                  style:TextStyle(fontSize:25)),
+            ),
+            ListTile(
+              title:Text("Home",
+                  style:TextStyle(fontSize:25)),
+            ),
+          ],
+        )
+    );
+  }
+
 }
