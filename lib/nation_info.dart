@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 
-void main() => runApp(MyApp());
+void main() => runApp(Nation_info());
 
 /// This Widget is the main application widget.
-class MyApp extends StatelessWidget {
+class Nation_info extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -552,7 +552,7 @@ class _MyDrawer extends State<MyDrawer>{
                     style:TextStyle(fontSize:25)),
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context)=> MyApp() ));
+                      MaterialPageRoute(builder: (context)=> Nation_info() ));
                 }
 
             ),
