@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
-
+import 'package:haerangga/logic/mysql.dart';
+import 'main.dart';
+import 'dart:async';
 
 void main() => runApp(Nation_info());
 
+
+
 /// This Widget is the main application widget.
 class Nation_info extends StatelessWidget {
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +44,12 @@ class Nation_info extends StatelessWidget {
 
 }
 
+class Table{
+  List<String> HeadingRow =[];
+  List<String> Rows =[];
+  Table(this.HeadingRow, this.Rows);
+}
+
 class newPage extends StatefulWidget{
   @override
   _newPage createState() => _newPage();
@@ -47,55 +59,155 @@ class newPage extends StatefulWidget{
 
 class _newPage extends State<newPage> {
 
+  int _counter = 0;
+  var db = new Mysql();
+  var nation = '';
+  var id_number='0';
+  String field = '';
   var check_list = new List<bool>.generate(10, (i) => false);
+  var check_field = new List<bool>.generate(9, (i) => false);
+  List<String> items=[];
+  String query='';
+  List<String> HeadingRow =[];
+  List<String> Rows =[];
+
 
 
   @override
   Widget build(BuildContext context) {
 
+    final table = Table(HeadingRow,Rows);
+    void _getNation(id_number,field) {
+
+      db.getConnection().then((conn) {
+
+        String sql =
+            'SELECT * FROM haerang_ga.$field WHERE $id_number';
+        print('sql is $sql');
+        conn.query(sql).then((results) {
+          //print(results);
+          var details = results;
+          print(details);
+          query = '$details';
+          List<String> field_list = query.split("Fields:");
+          for(int k = 1; k<field_list.length;k++){
+            query = field_list[k];
+            //print(query);
+            query = query.split("{")[1].split("}")[0];  
+            items = query.split(",");
+
+            HeadingRow =[];
+            Rows =[];
+
+            for(int i=0;i<items.length;i++){            
+              print(items[i]);
+              HeadingRow.add(items[i].split(":")[0]);
+              Rows.add(items[i].split(":")[1]);
+            }
+            print(HeadingRow);
+            print(Rows);
+            final table =  Table(HeadingRow, Rows);
+          }
+        });
+      });
+
+    }
+
     void getValue(){
 
       List<String> nation_Name =[];
+      List<String> field_Name =[];
       //print('selected');
       for (int i=0;i<10;i++){
         //print(check_list[i]);
         if (check_list[i]) {
           switch (i) {
             case 1 :
-              nation_Name.add('Cambodia');
+              nation_Name.add('10');//캄보디아
               break;
             case 2 :
-              nation_Name.add('Nepal');
+              nation_Name.add('1'); //nepal
               break;
             case 3 :
-              nation_Name.add('Mongolia');
+              nation_Name.add('4');//mongolia
               break;
             case 4 :
-              nation_Name.add('Vietnam');
+              nation_Name.add('7'); //vietnam
               break;
             case 5 :
-              nation_Name.add('Philippines');
+              nation_Name.add('13'); //philippines
               break;
             case 6 :
-              nation_Name.add('Thailand');
+              nation_Name.add('11'); //thai
               break;
             case 7 :
-              nation_Name.add('East Timor');
+              nation_Name.add('2');//east timor
               break;
             case 8 :
-              nation_Name.add('Myanmar');
+              nation_Name.add('5');//myanmar
               break;
             case 9 :
-              nation_Name.add('Bangladesh');
+              nation_Name.add('6');
               break;
           }
         }
       }
-      print(nation_Name);
+      for (int i=0;i<9;i++){
+        if (check_field[i]) {
+          switch (i) {
+            case 1 :
+              field_Name.add('water');
+              break;
+            case 2 :
+              field_Name.add('embassy_and_consulate');
+              break;
+            case 3 :
+              field_Name.add('city');
+              break;
+            case 4 :
+              field_Name.add('literacy_rate');
+              break;
+            case 5 :
+              field_Name.add('currency');
+              break;
+            case 6 :
+              field_Name.add('nation');
+              break;
+            case 7 :
+              field_Name.add('language');
+              break;
+            case 8 :
+              field_Name.add('climate');
+              break;
+          }
+        }
+      }
+     // print(nation_Name);
+      Timer _timer;
+      String sampleText;
+      var or='';
+      for(int i =0; i<nation_Name.length;i++){
+        if(i>0){
+          id_number = nation_Name[i];
+          or+='OR ';
+          or+= 'nation_id = $id_number ';
+        }else if(i==0){
+          id_number = nation_Name[i];
+          or += 'nation_id = $id_number ';
+        }
+      }
+      print(or);
+
+      for(int j=0; j<field_Name.length;j++){
+          field = field_Name[j];
+          _getNation(or,field);
+
+        }
 
 
 
     }
+
 
 
     // TODO: implement build
@@ -132,41 +244,13 @@ class _newPage extends State<newPage> {
                   for(int i=0;i<10;i++){
                     check_list[i] = false;
                   }
-                  /*
-                  _isChecked0 = false;
-                  _isChecked1 = false;
-                  _isChecked2 = false;
-                  _isChecked3 = false;
-                  _isChecked4 = false;
-                  _isChecked5 = false;
-                  _isChecked6 = false;
-                  _isChecked7 = false;
-                  _isChecked8 = false;
-                  _isChecked9 = false;
-                   */
                 }
                 else{
                   print('true');
-                  for(int i= 0; i<10;i++){
+                  for(int i= 0; i<10;i++) {
                     check_list[i] = true;
                   }
-                  /*
-                  _isChecked0 = true;
-                  _isChecked1 = true;
-                  _isChecked2 = true;
-                  _isChecked3 = true;
-                  _isChecked4 = true;
-                  _isChecked5 = true;
-                  _isChecked6 = true;
-                  _isChecked7 = true;
-                  _isChecked8 = true;
-                  _isChecked9 = true;
-                   */
                 }
-
-
-
-
               });
             },
 
@@ -220,16 +304,13 @@ class _newPage extends State<newPage> {
                       onChanged: (value) {
                         setState(() {
                           check_list[3] = !check_list[3];
-
                         });
                       },
-
                     ),
                     width:130,
                     height:30,
                     margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                   ),
-
                 ]
             )
         ),
@@ -243,7 +324,6 @@ class _newPage extends State<newPage> {
                       onChanged: (value) {
                         setState(() {
                           check_list[4] = !check_list[4];
-
                         });
                       },
                     ),
@@ -259,8 +339,7 @@ class _newPage extends State<newPage> {
                         setState(() {
                           check_list[5] = !check_list[5];
                         });
-                      },
-
+                        },
                     ),
                     width:140,
                     height:30,
@@ -314,8 +393,6 @@ class _newPage extends State<newPage> {
                     height:30,
 
                   ),
-
-
                 ]
             )
         ),
@@ -335,9 +412,7 @@ class _newPage extends State<newPage> {
                     ),
                     width:160,
                     height:30,
-
                   ),
-
                 ]
             )
         ),
@@ -363,8 +438,23 @@ class _newPage extends State<newPage> {
         Container(
           child:CheckboxListTile(
             title: Text("SELECT ALL"),
-            value: true,
-            onChanged: (newValue) {  },
+            value: check_field[0],
+            onChanged: (value) {
+              setState(() {
+                if(check_field[0]){
+                  print('false');
+                  for(int i=0;i<9;i++){
+                    check_field[i] = false;
+                  }
+                }
+                else{
+                  print('true');
+                  for(int i= 0; i<9;i++) {
+                    check_field[i] = true;
+                  }
+                }
+              });
+            },
 
           ),
           width: 200,
@@ -378,8 +468,12 @@ class _newPage extends State<newPage> {
                   Container(
                     child:CheckboxListTile(
                       title: Text("Water"),
-                      value: true,
-                      onChanged: (newValue) {  },
+                      value: check_field[1],
+                      onChanged: (newValue) {
+                        setState(() {
+                          check_field[1] = ! check_field[1];
+                        });
+                      },
 
                     ),
                     width:140,
@@ -389,8 +483,12 @@ class _newPage extends State<newPage> {
                   Container(
                     child:CheckboxListTile(
                       title: Text("Embassy"),
-                      value: true,
-                      onChanged: (newValue) {  },
+                      value: check_field[2],
+                      onChanged: (newValue) {
+                        setState(() {
+                          check_field[2] = ! check_field[2];
+                        });
+                      },
 
                     ),
                     width:160,
@@ -400,8 +498,12 @@ class _newPage extends State<newPage> {
                   Container(
                     child:CheckboxListTile(
                       title: Text("City"),
-                      value: true,
-                      onChanged: (newValue) {  },
+                      value: check_field[3],
+                      onChanged: (newValue) {
+                        setState(() {
+                          check_field[3] = ! check_field[3];
+                        });
+                      },
 
                     ),
                     width:120,
@@ -419,8 +521,12 @@ class _newPage extends State<newPage> {
                   Container(
                     child:CheckboxListTile(
                       title: Text("Literacy rate"),
-                      value: true,
-                      onChanged: (newValue) {  },
+                      value: check_field[4],
+                      onChanged: (newValue) {
+                        setState(() {
+                          check_field[4] = ! check_field[4];
+                        });
+                      },
 
                     ),
                     width:200,
@@ -430,8 +536,12 @@ class _newPage extends State<newPage> {
                   Container(
                     child:CheckboxListTile(
                       title: Text("Currency"),
-                      value: true,
-                      onChanged: (newValue) {  },
+                      value: check_field[5],
+                      onChanged: (newValue) {
+                        setState(() {
+                          check_field[5] = ! check_field[5];
+                        });
+                      },
 
                     ),
                     width:160,
@@ -448,8 +558,12 @@ class _newPage extends State<newPage> {
                   Container(
                     child:CheckboxListTile(
                       title: Text("Nation"),
-                      value: true,
-                      onChanged: (newValue) {  },
+                      value: check_field[6],
+                      onChanged: (newValue) {
+                        setState(() {
+                          check_field[6] = ! check_field[6];
+                        });
+                      },
 
                     ),
                     width:140,
@@ -459,8 +573,12 @@ class _newPage extends State<newPage> {
                   Container(
                     child:CheckboxListTile(
                       title: Text("Language"),
-                      value: true,
-                      onChanged: (newValue) {  },
+                      value: check_field[7],
+                      onChanged: (newValue) {
+                        setState(() {
+                          check_field[7] = ! check_field[7];
+                        });
+                      },
 
                     ),
                     width:170,
@@ -475,8 +593,12 @@ class _newPage extends State<newPage> {
         Container(
           child:CheckboxListTile(
             title: Text("Climate"),
-            value: true,
-            onChanged: (newValue) {  },
+            value: check_field[8],
+            onChanged: (newValue) {
+              setState(() {
+                check_field[8] = ! check_field[8];
+              });
+            },
 
           ),
           width:150,
@@ -499,9 +621,12 @@ class _newPage extends State<newPage> {
         Container(
             child:ElevatedButton(
               child: Text('SELECT',style:TextStyle(fontSize : 30, fontWeight: FontWeight.bold)),
-              onPressed: getValue,
+              onPressed: () {//getValue,
+                getValue();
+                Navigator.push(context,
+                MaterialPageRoute(builder: (context)=> SecondScreen(table:table) ));
 
-
+            }
 
             )
         ),
@@ -509,7 +634,93 @@ class _newPage extends State<newPage> {
     );
   }
 }
+class SecondScreen extends StatelessWidget {
 
+  final Table table;
+  SecondScreen({required this.table});
+
+/*
+  List<DataColumn> _getColumns(){
+    List<DataColumn> dataColumn = [];
+    for (var i in table.HeadingRow){
+      dataColumn.add(DataColumn(label:Text(i), tooltip:i));
+    }
+
+    return dataColumn;
+  }
+  List<DataRow> _getRows(){
+    List<DataRow> dataRow = [];
+    for (var i=0;i<table.Rows.length-1;i++){
+      var DataCells = table.Rows[i].split(',');
+      List<DataCell> cells = [];
+      for(var j=0; j<DataCells.length;j++){
+        cells.add(DataCell(Text(DataCells[j])));
+      }
+      dataRow.add(DataRow(cells: cells));
+    }
+
+    return dataRow;
+  }
+
+  Widget _getDataTable(){
+    return DataTable(
+      horizontalMargin: 12.0,
+      columnSpacing:28.0,
+      columns: _getColumns(),
+      rows: _getRows(),
+    );
+  }
+*/
+void _getDataTable(){
+  print("==========================================");
+  for (var i in table.HeadingRow){
+    print(i);
+  }
+
+}
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Second Screen"),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child:SingleChildScrollView(
+                //_getDataTable(),
+              )
+            ),
+
+            RaisedButton(
+              onPressed: (){
+                Navigator.pop(context);
+                _getDataTable();
+              },
+              child: Text('Go back!'),
+            ),
+          ],
+
+          ),
+        ),
+
+          /*
+          child :RaisedButton(
+            onPressed: (){
+              Navigator.pop(context);
+            },
+            child: Text('Go back!'),
+          ),
+        */
+
+      );
+
+  }
+}
 
 class MyClass {
   String title;
@@ -567,6 +778,10 @@ class _MyDrawer extends State<MyDrawer>{
             ListTile(
               title:Text("Home",
                   style:TextStyle(fontSize:25)),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context)=> MyApp() ));
+                }
             ),
           ],
         )
