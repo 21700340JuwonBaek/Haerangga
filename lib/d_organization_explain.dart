@@ -14,11 +14,11 @@ class d_organization_explain extends StatefulWidget {
 class _d_organization_explainState extends State<d_organization_explain> {
 
   _launchURL() async {
-    /*if (await canLaunch(widget.url)) {
+    if (await canLaunch(widget.url)) {
       await launch(widget.url);
     } else {
       Fluttertoast.showToast(msg: 'Cannot open the url!', backgroundColor: Colors.black ,textColor: Colors.white);
-    }*/
+    }
   }
 
   @override
@@ -92,7 +92,7 @@ class _d_organization_explainState extends State<d_organization_explain> {
             children: [
               ElevatedButton(
                 onPressed: () async {
-                 // await _launchURL();
+                  await _launchURL();
                 },
                 child: Text('Go to the webpage'),
                 style: ButtonStyle(
