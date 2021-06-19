@@ -66,7 +66,9 @@ class DetailInfoFieldPageState extends State<DetailInfoFieldPage> {
       }
       filteredNames = tempList;
     }
-    return ListView.builder(
+    return ListView.separated(
+      separatorBuilder: (context, index) => Divider(),
+      padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
       itemCount: names == null ? 0 : filteredNames.length,
       itemBuilder: (BuildContext context, int index) {
         return new ListTile(
@@ -95,7 +97,7 @@ class DetailInfoFieldPageState extends State<DetailInfoFieldPage> {
         int i = 1;
         for (var row in results) {
           setState(() {
-            names.add(i.toString() + '. \n' + 'Due Date : ' + row[0].toString().substring(0, 10) + '\n' + 'Duration : ' + row[1].toString().substring(0, 10) + ' ~ ' + row[2].toString().substring(0, 10) +  '\n\n' + row[3] + '\n\n');
+            names.add(i.toString() + '. \n' + 'Due Date : ' + row[0].toString().substring(0, 10) + '\n' + 'Duration : ' + row[1].toString().substring(0, 10) + ' ~ ' + row[2].toString().substring(0, 10) +  '\n\n' + row[3]);
             //names.shuffle();
             filteredNames = names;
             i++;

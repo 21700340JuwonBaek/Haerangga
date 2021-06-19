@@ -42,19 +42,32 @@ class SearchPageState extends State<SearchPage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.deepOrangeAccent,
-        centerTitle: true,
-        title: Text('Search With Organization', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-        leading: new IconButton(
-          icon: _searchIcon,
-          onPressed: _searchPressed,
-        ),
-      ),
+      appBar: _buildBar(context),
       body: Container(
         child: _buildList(),
       ),
       resizeToAvoidBottomInset: false,
+    );
+  }
+
+  PreferredSizeWidget _buildBar(BuildContext context) {
+    return new AppBar(
+      backgroundColor: Colors.deepOrangeAccent,
+      centerTitle: true,
+      title: _appBarTitle,
+        actions: <Widget>[
+          Builder(
+            builder: (context) => IconButton(
+              icon: Icon(Icons.search),
+              onPressed: _searchPressed,
+            ),
+          ),
+        ]
+      /*leading: new IconButton(
+        icon: _searchIcon,
+        onPressed: _searchPressed,
+      ),*/
+
     );
   }
 
