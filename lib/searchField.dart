@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:dio/dio.dart';
 import 'dart:core';
 import 'package:haerangga/logic/mysql.dart';
 import 'detailInfoField.dart';
@@ -42,11 +41,7 @@ class SearchFieldPageState extends State<SearchFieldPage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Colors.deepOrangeAccent,
-        title: Text('Search With Field', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-      ),
+      appBar: _buildBar(context),
       body: Container(
         child: _buildList(),
       ),
@@ -54,6 +49,17 @@ class SearchFieldPageState extends State<SearchFieldPage> {
     );
   }
 
+  PreferredSizeWidget _buildBar(BuildContext context) {
+    return new AppBar(
+      leading: new IconButton(
+        icon: _searchIcon,
+        onPressed: _searchPressed,
+      ),
+      centerTitle: true,
+      backgroundColor: Colors.deepOrangeAccent,
+      title: _appBarTitle,
+    );
+  }
 
   Widget _buildList() {
     if (!(_searchText.isEmpty)) {
