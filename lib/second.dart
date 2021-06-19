@@ -114,9 +114,9 @@ class _SecondScreen extends State<SecondScreen> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Result",
-              style:TextStyle(fontSize:35,fontWeight:FontWeight.bold,color:Colors.orange )),
-          backgroundColor: Colors.white,
-          iconTheme: IconThemeData(color:Colors.orange),
+              style:TextStyle(fontSize:20,fontWeight:FontWeight.bold,color:Colors.white )),
+          backgroundColor: Colors.deepOrangeAccent,
+          iconTheme: IconThemeData(color:Colors.white),
 
         ),
         body:ListView.separated(

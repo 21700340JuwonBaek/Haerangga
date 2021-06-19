@@ -53,9 +53,9 @@ class _FieldScreen extends State<FieldScreen> {
     return Scaffold(
         appBar: AppBar(
         title: Text("Field",
-            style:TextStyle(fontSize:35,fontWeight:FontWeight.bold,color:Colors.orange )),
-          backgroundColor: Colors.white,
-          iconTheme: IconThemeData(color:Colors.orange),
+            style:TextStyle(fontSize:20,fontWeight:FontWeight.bold,color:Colors.white )),
+          backgroundColor: Colors.deepOrangeAccent,
+          iconTheme: IconThemeData(color:Colors.white),
     ),body:ListView.builder(
         padding:const EdgeInsets.all(8.0),
         itemCount:flist.length,
