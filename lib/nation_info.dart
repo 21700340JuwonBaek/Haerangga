@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:haerangga/logic/mysql.dart';
+import 'package:haerangga/second.dart';
+import 'package:haerangga/field.dart';
 import 'main.dart';
 import 'dart:async';
 
@@ -66,11 +68,14 @@ class _newPage extends State<newPage> {
   String field = '';
   var check_list = new List<bool>.generate(10, (i) => false);
   var check_field = new List<bool>.generate(9, (i) => false);
-  List<String> items=[];
+
   String query='';
   List<String> HeadingRow =[];
   List<String> Rows =[];
+  final List<String> items=[];
 
+  final List<String> nation_Name =[];
+  final List<String> field_Name =[];
 
 
   @override
@@ -83,31 +88,24 @@ class _newPage extends State<newPage> {
 
         String sql =
             'SELECT * FROM haerang_ga.$field WHERE $id_number';
-        print('sql is $sql');
+        //print('sql is $sql');
         conn.query(sql).then((results) {
           //print(results);
           var details = results;
-          print(details);
+          //print(details);
           query = '$details';
           List<String> field_list = query.split("Fields:");
+
           for(int k = 1; k<field_list.length;k++){
             query = field_list[k];
             //print(query);
-            query = query.split("{")[1].split("}")[0];  
-            items = query.split(",");
-
-            HeadingRow =[];
-            Rows =[];
-
-            for(int i=0;i<items.length;i++){            
-              print(items[i]);
-              HeadingRow.add(items[i].split(":")[0]);
-              Rows.add(items[i].split(":")[1]);
+            query = query.split("{")[1].split("}")[0];
+            List<String> split_list = query.split(",");
+            for(int j=0;j<split_list.length;j++){
+              items.add(split_list[j]);
             }
-            print(HeadingRow);
-            print(Rows);
-            final table =  Table(HeadingRow, Rows);
           }
+
         });
       });
 
@@ -115,8 +113,8 @@ class _newPage extends State<newPage> {
 
     void getValue(){
 
-      List<String> nation_Name =[];
-      List<String> field_Name =[];
+      nation_Name.clear();
+      field_Name.clear();
       //print('selected');
       for (int i=0;i<10;i++){
         //print(check_list[i]);
@@ -182,9 +180,7 @@ class _newPage extends State<newPage> {
           }
         }
       }
-     // print(nation_Name);
-      Timer _timer;
-      String sampleText;
+
       var or='';
       for(int i =0; i<nation_Name.length;i++){
         if(i>0){
@@ -196,7 +192,6 @@ class _newPage extends State<newPage> {
           or += 'nation_id = $id_number ';
         }
       }
-      print(or);
 
       for(int j=0; j<field_Name.length;j++){
           field = field_Name[j];
@@ -205,10 +200,8 @@ class _newPage extends State<newPage> {
         }
 
 
-
     }
-
-
+    var count = 0;
 
     // TODO: implement build
     return Column(
@@ -239,24 +232,28 @@ class _newPage extends State<newPage> {
             value: check_list[0],
             onChanged: (value) {
               setState(() {
+
                 if(check_list[0]){
                   print('false');
                   for(int i=0;i<10;i++){
                     check_list[i] = false;
                   }
+
                 }
                 else{
                   print('true');
                   for(int i= 0; i<10;i++) {
                     check_list[i] = true;
                   }
+
                 }
+
               });
             },
 
           ),
           width: 200,
-          height:30,
+          height:40,
           //margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
         ),
 
@@ -272,14 +269,17 @@ class _newPage extends State<newPage> {
                       onChanged: (value) {
                         setState(() {
                           check_list[1] = !check_list[1];
-
+                          if(!check_list[1]) {
+                            check_list[0] = false;
+                          }
                         });
                       },
 
                     ),
                     width:150,
-                    height:30,
-                    margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                    height:40,
+                    //padding: EdgeInsets.fromLTRB(0, 10, 0, 0)
+                    //margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                   ),
                   Container(
                     child:CheckboxListTile(
@@ -288,13 +288,16 @@ class _newPage extends State<newPage> {
                       onChanged: (value) {
                         setState(() {
                           check_list[2] = !check_list[2];
+                          if(!check_list[2]) {
+                            check_list[0] = false;
+                          }
 
                         });
                       },
 
                     ),
                     width:130,
-                    height:30,
+                    height:40,
 
                   ),
                   Container(
@@ -304,11 +307,14 @@ class _newPage extends State<newPage> {
                       onChanged: (value) {
                         setState(() {
                           check_list[3] = !check_list[3];
+                          if(!check_list[3]) {
+                            check_list[0] = false;
+                          }
                         });
                       },
                     ),
                     width:130,
-                    height:30,
+                    height:40,
                     margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                   ),
                 ]
@@ -324,11 +330,14 @@ class _newPage extends State<newPage> {
                       onChanged: (value) {
                         setState(() {
                           check_list[4] = !check_list[4];
+                          if(!check_list[4]) {
+                            check_list[0] = false;
+                          }
                         });
                       },
                     ),
                     width:150,
-                    height:30,
+                    height:40,
                     margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                   ),
                   Container(
@@ -338,11 +347,14 @@ class _newPage extends State<newPage> {
                       onChanged: (value) {
                         setState(() {
                           check_list[5] = !check_list[5];
+                          if(!check_list[5]) {
+                            check_list[0] = false;
+                          }
                         });
                         },
                     ),
                     width:140,
-                    height:30,
+                    height:40,
 
                   ),
                   Container(
@@ -352,11 +364,14 @@ class _newPage extends State<newPage> {
                       onChanged: (value) {
                         setState(() {
                           check_list[6] = !check_list[6];
+                          if(!check_list[6]) {
+                            check_list[0] = false;
+                          }
                         });
                       },
                     ),
                     width:130,
-                    height:30,
+                    height:40,
                     margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                   ),
 
@@ -372,11 +387,14 @@ class _newPage extends State<newPage> {
                       onChanged: (value) {
                         setState(() {
                           check_list[7] = !check_list[7];
+                          if(!check_list[7]) {
+                            check_list[0] = false;
+                          }
                         });
                       },
                     ),
                     width:145,
-                    height:30,
+                    height:40,
                     margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                   ),
                   Container(
@@ -386,11 +404,14 @@ class _newPage extends State<newPage> {
                       onChanged: (value) {
                         setState(() {
                           check_list[8] = !check_list[8];
+                          if(!check_list[8]) {
+                            check_list[0] = false;
+                          }
                         });
                       },
                     ),
                     width:130,
-                    height:30,
+                    height:40,
 
                   ),
                 ]
@@ -406,12 +427,15 @@ class _newPage extends State<newPage> {
                       onChanged: (value) {
                         setState(() {
                           check_list[9] = ! check_list[9];
+                          if(!check_list[9]) {
+                            check_list[0] = false;
+                          }
                         });
                       },
 
                     ),
                     width:160,
-                    height:30,
+                    height:40,
                   ),
                 ]
             )
@@ -458,7 +482,7 @@ class _newPage extends State<newPage> {
 
           ),
           width: 200,
-          height:30,
+          height:40,
           //margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
         ),
         Container(
@@ -472,12 +496,15 @@ class _newPage extends State<newPage> {
                       onChanged: (newValue) {
                         setState(() {
                           check_field[1] = ! check_field[1];
+                          if(!check_field[1]) {
+                            check_field[0] = false;
+                          }
                         });
                       },
 
                     ),
                     width:140,
-                    height:30,
+                    height:40,
                     margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                   ),
                   Container(
@@ -487,12 +514,15 @@ class _newPage extends State<newPage> {
                       onChanged: (newValue) {
                         setState(() {
                           check_field[2] = ! check_field[2];
+                          if(!check_field[2]) {
+                            check_field[0] = false;
+                          }
                         });
                       },
 
                     ),
                     width:160,
-                    height:30,
+                    height:40,
 
                   ),
                   Container(
@@ -502,12 +532,15 @@ class _newPage extends State<newPage> {
                       onChanged: (newValue) {
                         setState(() {
                           check_field[3] = ! check_field[3];
+                          if(!check_field[3]) {
+                            check_field[0] = false;
+                          }
                         });
                       },
 
                     ),
                     width:120,
-                    height:30,
+                    height:40,
                     margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                   ),
 
@@ -525,12 +558,15 @@ class _newPage extends State<newPage> {
                       onChanged: (newValue) {
                         setState(() {
                           check_field[4] = ! check_field[4];
+                          if(!check_field[4]) {
+                            check_field[0] = false;
+                          }
                         });
                       },
 
                     ),
                     width:200,
-                    height:30,
+                    height:40,
                     margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                   ),
                   Container(
@@ -540,12 +576,15 @@ class _newPage extends State<newPage> {
                       onChanged: (newValue) {
                         setState(() {
                           check_field[5] = ! check_field[5];
+                          if(!check_field[5]) {
+                            check_field[0] = false;
+                          }
                         });
                       },
 
                     ),
                     width:160,
-                    height:30,
+                    height:40,
 
                   ),
                 ]
@@ -562,12 +601,15 @@ class _newPage extends State<newPage> {
                       onChanged: (newValue) {
                         setState(() {
                           check_field[6] = ! check_field[6];
+                          if(!check_field[6]) {
+                            check_field[0] = false;
+                          }
                         });
                       },
 
                     ),
                     width:140,
-                    height:30,
+                    height:40,
                     margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                   ),
                   Container(
@@ -577,12 +619,15 @@ class _newPage extends State<newPage> {
                       onChanged: (newValue) {
                         setState(() {
                           check_field[7] = ! check_field[7];
+                          if(!check_field[7]) {
+                            check_field[0] = false;
+                          }
                         });
                       },
 
                     ),
                     width:170,
-                    height:30,
+                    height:40,
 
                   ),
 
@@ -597,12 +642,15 @@ class _newPage extends State<newPage> {
             onChanged: (newValue) {
               setState(() {
                 check_field[8] = ! check_field[8];
+                if(!check_field[8]) {
+                  check_field[0] = false;
+                }
               });
             },
 
           ),
           width:150,
-          height:30,
+          height:40,
           margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
         ),
         Container(
@@ -620,11 +668,29 @@ class _newPage extends State<newPage> {
         ),
         Container(
             child:ElevatedButton(
-              child: Text('SELECT',style:TextStyle(fontSize : 30, fontWeight: FontWeight.bold)),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.pressed))
+                      return Colors.orange;
+                    return Colors.orange; // Use the component's default.
+                  },
+                ),
+
+              ),
+              child: Text('SELECT',style:TextStyle(fontSize : 30, fontWeight: FontWeight.bold),textAlign: TextAlign.center),
+
               onPressed: () {//getValue,
                 getValue();
-                Navigator.push(context,
-                MaterialPageRoute(builder: (context)=> SecondScreen(table:table) ));
+
+
+                //items.add("hi");
+                //Navigator.push(context,
+                //MaterialPageRoute(builder: (context)=> SecondScreen(table:table) ));
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context)=>FieldScreen(nlist : nation_Name, flist: field_Name,)),
+
+                );
 
             }
 
@@ -634,54 +700,49 @@ class _newPage extends State<newPage> {
     );
   }
 }
-class SecondScreen extends StatelessWidget {
 
-  final Table table;
-  SecondScreen({required this.table});
 
 /*
-  List<DataColumn> _getColumns(){
-    List<DataColumn> dataColumn = [];
+class SecondScreen extends StatelessWidget {
+
+   final Table table;
+  SecondScreen({required this.table});
+
+  @override
+  void _getDataTable(){
+    print("==========================================");
     for (var i in table.HeadingRow){
-      dataColumn.add(DataColumn(label:Text(i), tooltip:i));
+      print(i);
     }
 
-    return dataColumn;
   }
-  List<DataRow> _getRows(){
-    List<DataRow> dataRow = [];
-    for (var i=0;i<table.Rows.length-1;i++){
-      var DataCells = table.Rows[i].split(',');
-      List<DataCell> cells = [];
-      for(var j=0; j<DataCells.length;j++){
-        cells.add(DataCell(Text(DataCells[j])));
-      }
-      dataRow.add(DataRow(cells: cells));
-    }
+  @override
+   Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Second Screen"),
 
-    return dataRow;
-  }
+      ),
+      body:ListView.builder(
+        scrollDirection: Axis.vertical,
+        shrinkWrap: true,
+        itemCount: table.HeadingRow.length,
+        itemBuilder: (BuildContext context, int index){
+          return new ListTile(
+            title: Text(table.HeadingRow[index]),
+            onTap: (){
+              print(table.HeadingRow[index]);},
+          );},),);
 
-  Widget _getDataTable(){
-    return DataTable(
-      horizontalMargin: 12.0,
-      columnSpacing:28.0,
-      columns: _getColumns(),
-      rows: _getRows(),
-    );
-  }
-*/
-void _getDataTable(){
-  print("==========================================");
-  for (var i in table.HeadingRow){
-    print(i);
-  }
 
-}
 
+   }
+
+/*
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Second Screen"),
@@ -689,10 +750,17 @@ void _getDataTable(){
       body: Center(
         child: Column(
           children: [
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child:SingleChildScrollView(
-                //_getDataTable(),
+            Container(
+              child:ListView.builder(
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: table.HeadingRow.length,
+                itemBuilder: (BuildContext context, int index){
+                  return new ListTile(
+                    title: Text(table.HeadingRow[index]),
+                    onTap: (){
+                      print(table.HeadingRow[index]);},
+                  );},
               )
             ),
 
@@ -708,20 +776,11 @@ void _getDataTable(){
           ),
         ),
 
-          /*
-          child :RaisedButton(
-            onPressed: (){
-              Navigator.pop(context);
-            },
-            child: Text('Go back!'),
-          ),
-        */
-
       );
 
-  }
+  }*/
 }
-
+*/
 class MyClass {
   String title;
   bool value;
