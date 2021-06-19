@@ -12,9 +12,7 @@ class Nation_info extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool _ischecked = false;
-    return MaterialApp(
-      title: 'Haerangga',
-      home: Scaffold(
+    return Scaffold(
           appBar: AppBar(
             title: Text('해랑가',
                 style: TextStyle(
@@ -32,8 +30,7 @@ class Nation_info extends StatelessWidget {
               )
             ],
           ),
-          body: newPage()),
-    );
+          body: newPage());
   }
 }
 
