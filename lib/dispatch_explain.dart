@@ -93,9 +93,8 @@ class _dispatch_explainState extends State<dispatch_explain> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('해랑가'),
-        centerTitle: true,
-        backgroundColor: Colors.orange,
+        title: Text('HAERANGGA'),
+        backgroundColor: Colors.deepOrangeAccent,
       ),
       body: Container(child: d_organization_list()),
     );

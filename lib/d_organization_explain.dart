@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class d_organization_explain extends StatefulWidget {
   final String name, city, location, contact, url, nation;
@@ -11,12 +12,14 @@ class d_organization_explain extends StatefulWidget {
 }
 
 class _d_organization_explainState extends State<d_organization_explain> {
+  bool enableLaunch = false;
+
   _launchURL() async {
-    if (await canLaunch(widget.url)) {
+    /*if (await canLaunch(widget.url)) {
       await launch(widget.url);
     } else {
-      print("Cannot launch it");
-    }
+      Fluttertoast.showToast(msg: 'Cannot open the url!', backgroundColor: Colors.black ,textColor: Colors.white);
+    }*/
   }
 
   @override
@@ -25,9 +28,8 @@ class _d_organization_explainState extends State<d_organization_explain> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text('해랑가'),
-        centerTitle: true,
-        backgroundColor: Colors.orange,
+        title: Text('HAERRANGGA'),
+        backgroundColor: Colors.deepOrangeAccent,
       ),
       body: Container(
           child: Column(
@@ -90,12 +92,13 @@ class _d_organization_explainState extends State<d_organization_explain> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   _launchURL();
                 },
                 child: Text('Go to the webpage'),
                 style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.orange)),
+                    backgroundColor:
+                        MaterialStateProperty.all(Colors.deepOrangeAccent)),
               )
             ],
           )

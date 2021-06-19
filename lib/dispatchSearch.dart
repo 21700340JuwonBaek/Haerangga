@@ -67,9 +67,8 @@ class _dispatchSearchState extends State<dispatchSearch> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text('해랑가'),
-        centerTitle: true,
-        backgroundColor: Colors.orange,
+        title: Text('HAERANGGA'),
+        backgroundColor: Colors.deepOrangeAccent,
       ),
       body: Container(child: dispatchList()),
     );

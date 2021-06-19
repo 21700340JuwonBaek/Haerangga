@@ -25,82 +25,81 @@ class DOrganizationExplainState extends State<DOrganizationExplain> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text('해랑가'),
-        centerTitle: true,
-        backgroundColor: Colors.orange,
+        title: Text('HAERANGGA'),
+        backgroundColor: Colors.deepOrangeAccent,
       ),
       body: Container(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+              margin: EdgeInsets.fromLTRB(
+                  20,
+                  MediaQuery.of(context).size.height * 0.15,
+                  20,
+                  MediaQuery.of(context).size.height * 0.01),
+              child: Text(
+                '봉사 기관 명 : ' + widget.name,
+                style: TextStyle(fontSize: 20),
+              )),
+          Container(
+              margin: EdgeInsets.fromLTRB(
+                  20,
+                  MediaQuery.of(context).size.height * 0.01,
+                  20,
+                  MediaQuery.of(context).size.height * 0.01),
+              child: Text(
+                '국가 이름 : ' + widget.nation,
+                style: TextStyle(fontSize: 20),
+              )),
+          Container(
+              margin: EdgeInsets.fromLTRB(
+                  20,
+                  MediaQuery.of(context).size.height * 0.01,
+                  20,
+                  MediaQuery.of(context).size.height * 0.01),
+              child: Text(
+                '봉사 기관 도시 : ' + widget.city,
+                style: TextStyle(fontSize: 20),
+              )),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            margin: EdgeInsets.fromLTRB(
+                20,
+                MediaQuery.of(context).size.height * 0.01,
+                20,
+                MediaQuery.of(context).size.height * 0.01),
+            child: Text(
+              '봉사 위치 : ' + widget.location,
+              overflow: TextOverflow.visible,
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+          Container(
+              margin: EdgeInsets.fromLTRB(
+                  20,
+                  MediaQuery.of(context).size.height * 0.01,
+                  20,
+                  MediaQuery.of(context).size.height * 0.07),
+              child: Text(
+                '봉사 기관 연락처 : ' + widget.contact,
+                style: TextStyle(fontSize: 20),
+              )),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                  margin: EdgeInsets.fromLTRB(
-                      20,
-                      MediaQuery.of(context).size.height * 0.15,
-                      20,
-                      MediaQuery.of(context).size.height * 0.01),
-                  child: Text(
-                    '봉사 기관 명 : ' + widget.name,
-                    style: TextStyle(fontSize: 20),
-                  )),
-              Container(
-                  margin: EdgeInsets.fromLTRB(
-                      20,
-                      MediaQuery.of(context).size.height * 0.01,
-                      20,
-                      MediaQuery.of(context).size.height * 0.01),
-                  child: Text(
-                    '국가 이름 : ' + widget.nation,
-                    style: TextStyle(fontSize: 20),
-                  )),
-              Container(
-                  margin: EdgeInsets.fromLTRB(
-                      20,
-                      MediaQuery.of(context).size.height * 0.01,
-                      20,
-                      MediaQuery.of(context).size.height * 0.01),
-                  child: Text(
-                    '봉사 기관 도시 : ' + widget.city,
-                    style: TextStyle(fontSize: 20),
-                  )),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                margin: EdgeInsets.fromLTRB(
-                    20,
-                    MediaQuery.of(context).size.height * 0.01,
-                    20,
-                    MediaQuery.of(context).size.height * 0.01),
-                child: Text(
-                  '봉사 위치 : ' + widget.location,
-                  overflow: TextOverflow.visible,
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
-              Container(
-                  margin: EdgeInsets.fromLTRB(
-                      20,
-                      MediaQuery.of(context).size.height * 0.01,
-                      20,
-                      MediaQuery.of(context).size.height * 0.07),
-                  child: Text(
-                    '봉사 기관 연락처 : ' + widget.contact,
-                    style: TextStyle(fontSize: 20),
-                  )),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      _launchURL();
-                    },
-                    child: Text('Go to the webpage'),
-                    style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.orange)),
-                  )
-                ],
+              ElevatedButton(
+                onPressed: () {
+                  _launchURL();
+                },
+                child: Text('Go to the webpage'),
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.orange)),
               )
             ],
-          )),
+          )
+        ],
+      )),
     );
   }
 }

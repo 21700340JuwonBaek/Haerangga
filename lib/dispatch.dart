@@ -49,15 +49,21 @@ class _DispatchState extends State<Dispatch> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('해랑가'),
+          title: Text('HAERANGGA'),
           centerTitle: true,
-          backgroundColor: Colors.orange,
+          backgroundColor: Colors.deepOrangeAccent,
         ),
         body: Container(
             child: Padding(
           padding: EdgeInsets.all(20),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Container(child: Text('Dispatch\nOrganization',style: TextStyle(fontSize: 40.0)),
+              margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height*0.03),),
+              Divider(
+                color: Colors.black,
+              ),
               Row(
                 children: [
                   Checkbox(
@@ -243,7 +249,7 @@ class _DispatchState extends State<Dispatch> {
                             country.update(11, (value) => TH);
                           });
                         }),
-                    Text('태국', style: TextStyle(fontSize: 20))
+                    Text('태국', style: TextStyle(fontSize: 15))
                   ],
                 ),
                 Row(
@@ -257,7 +263,7 @@ class _DispatchState extends State<Dispatch> {
                             country.update(12, (value) => PK);
                           });
                         }),
-                    Text('파키스탄', style: TextStyle(fontSize: 20))
+                    Text('파키스탄', style: TextStyle(fontSize: 15))
                   ],
                 ),
               ]),
@@ -273,7 +279,7 @@ class _DispatchState extends State<Dispatch> {
                             country.update(13, (value) => PH);
                           });
                         }),
-                    Text('필리핀', style: TextStyle(fontSize: 20)),
+                    Text('필리핀', style: TextStyle(fontSize: 15)),
                   ],
                 ),
                 Row(
@@ -287,24 +293,31 @@ class _DispatchState extends State<Dispatch> {
                             country.update(14, (value) => BT);
                           });
                         }),
-                    Text('부탄', style: TextStyle(fontSize: 20)),
+                    Text('부탄', style: TextStyle(fontSize: 15)),
                   ],
                 ),
               ]),
               Divider(
                 color: Colors.black,
               ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => dispatchSearch(country)));
-                },
-                child: Text(
-                  'Search',
-                  style: TextStyle(color: Colors.white),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all(Colors.deepOrangeAccent),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => dispatchSearch(country)));
+                  },
+                  child: Text(
+                    'Search',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                )]
               )
             ],
           ),
