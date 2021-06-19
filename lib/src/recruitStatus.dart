@@ -210,7 +210,8 @@ class _RecruitStatusState extends State<RecruitStatus> {
           setState(() {
             targetList[flag1] = value!;
             if(!targetList[flag1] && targetList[0]) {
-              for(int i = 0; i < targetList.length; i++) targetList[i] = false;
+              // for(int i = 0; i < targetList.length; i++) targetList[i] = false;
+              targetList[0] = false;
             }
           });
         },
@@ -228,7 +229,8 @@ class _RecruitStatusState extends State<RecruitStatus> {
             setState(() {
               targetList[flag2] = value!;
               if(!targetList[flag2] && targetList[0]) {
-                for(int i = 0; i < targetList.length; i++) targetList[i] = false;
+                // for(int i = 0; i < targetList.length; i++) targetList[i] = false;
+                targetList[0] = false;
               }
             });
           },
@@ -247,7 +249,8 @@ class _RecruitStatusState extends State<RecruitStatus> {
             setState(() {
               targetList[flag3] = value!;
               if(!targetList[flag3] && targetList[0]) {
-                for(int i = 0; i < targetList.length; i++) targetList[i] = false;
+                // for(int i = 0; i < targetList.length; i++) targetList[i] = false;
+                targetList[0] = false;
               }
             });
           },
