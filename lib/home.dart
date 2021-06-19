@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:core';
 import 'dispatch.dart';
+import 'src/recruitStatus.dart';
 
 class HomePage extends StatefulWidget {
   HomePage();
@@ -72,7 +73,8 @@ class HomePageState extends State<HomePage> {
                 // Update the state of the app
                 // ...
                 // Then close the drawer
-                Navigator.pop(context);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => RecruitStatus()));
               },
             ),
             ListTile(
