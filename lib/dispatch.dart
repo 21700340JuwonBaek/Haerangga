@@ -50,7 +50,6 @@ class _DispatchState extends State<Dispatch> {
     return Scaffold(
         appBar: AppBar(
           title: Text('HAERANGGA'),
-          centerTitle: true,
           backgroundColor: Colors.deepOrangeAccent,
         ),
         body: Container(
@@ -59,8 +58,12 @@ class _DispatchState extends State<Dispatch> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(child: Text('Dispatch\nOrganization',style: TextStyle(fontSize: 40.0)),
-              margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height*0.03),),
+              Container(
+                child: Text('Dispatch\nOrganization',
+                    style: TextStyle(fontSize: 40.0)),
+                margin: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).size.height * 0.03),
+              ),
               Divider(
                 color: Colors.black,
               ),
@@ -300,9 +303,8 @@ class _DispatchState extends State<Dispatch> {
               Divider(
                 color: Colors.black,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [ElevatedButton(
+              Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor:
                         MaterialStateProperty.all(Colors.deepOrangeAccent),
@@ -317,8 +319,8 @@ class _DispatchState extends State<Dispatch> {
                     'Search',
                     style: TextStyle(color: Colors.white),
                   ),
-                )]
-              )
+                )
+              ])
             ],
           ),
         )));

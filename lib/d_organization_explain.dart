@@ -12,7 +12,6 @@ class d_organization_explain extends StatefulWidget {
 }
 
 class _d_organization_explainState extends State<d_organization_explain> {
-  bool enableLaunch = false;
 
   _launchURL() async {
     /*if (await canLaunch(widget.url)) {
@@ -93,7 +92,7 @@ class _d_organization_explainState extends State<d_organization_explain> {
             children: [
               ElevatedButton(
                 onPressed: () async {
-                  _launchURL();
+                 // await _launchURL();
                 },
                 child: Text('Go to the webpage'),
                 style: ButtonStyle(
