@@ -55,10 +55,18 @@ class SearchPageState extends State<SearchPage> {
       backgroundColor: Colors.deepOrangeAccent,
       centerTitle: true,
       title: _appBarTitle,
-      leading: new IconButton(
+        actions: <Widget>[
+          Builder(
+            builder: (context) => IconButton(
+              icon: Icon(Icons.search),
+              onPressed: _searchPressed,
+            ),
+          ),
+        ]
+      /*leading: new IconButton(
         icon: _searchIcon,
         onPressed: _searchPressed,
-      ),
+      ),*/
 
     );
   }

@@ -151,7 +151,7 @@ class HomePageState extends State<HomePage> {
                 Navigator.pop(context);
                 Navigator.pushNamed(context, '/searchField');
               },
-              selected: true,
+              //selected: true,
             ),
             ListTile(
               leading: Icon(

@@ -51,13 +51,21 @@ class SearchFieldPageState extends State<SearchFieldPage> {
 
   PreferredSizeWidget _buildBar(BuildContext context) {
     return new AppBar(
-      leading: new IconButton(
+      /*leading: new IconButton(
         icon: _searchIcon,
         onPressed: _searchPressed,
-      ),
+      ),*/
       centerTitle: true,
       backgroundColor: Colors.deepOrangeAccent,
       title: _appBarTitle,
+        actions: <Widget>[
+          Builder(
+            builder: (context) => IconButton(
+              icon: Icon(Icons.search),
+              onPressed: _searchPressed,
+            ),
+          ),
+        ]
     );
   }
 
