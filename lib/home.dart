@@ -22,10 +22,11 @@ class HomePageState extends State<HomePage> {
               padding: EdgeInsets.all(20.0),
               child: Align(
                   alignment: Alignment.bottomLeft,
-                  child: Text('Haerangga', style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ))),
+                  child: Text('Haerangga',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ))),
               decoration: BoxDecoration(
                 color: Colors.deepOrangeAccent,
               ),
@@ -87,8 +88,8 @@ class HomePageState extends State<HomePage> {
                 // Then close the drawer
                 Navigator.pop(context);
                 //Navigator.pushNamed(context, '/mypage');
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Dispatch()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Dispatch()));
               },
             ),
           ],
@@ -96,7 +97,10 @@ class HomePageState extends State<HomePage> {
       ),
       appBar: AppBar(
         backgroundColor: Colors.deepOrangeAccent,
-        title: Text('HAERANGGA', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),),
+        title: Text(
+          'HAERANGGA',
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+        ),
         actions: <Widget>[
           /*IconButton(
             icon: Icon(
@@ -129,10 +133,11 @@ class HomePageState extends State<HomePage> {
               padding: EdgeInsets.all(20.0),
               child: Align(
                   alignment: Alignment.bottomLeft,
-                  child: Text('Search With...', style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ))),
+                  child: Text('Search With...',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ))),
               decoration: BoxDecoration(
                 color: Colors.deepOrangeAccent,
               ),
@@ -168,40 +173,38 @@ class HomePageState extends State<HomePage> {
                 Navigator.pushNamed(context, '/search');
               },
             ),
-
           ],
         ),
       ),
-      body: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.fromLTRB(0.0, 16.0, 16.0, 0.0),
-              child:
-              Center(
-                  child: Column(
-                      children: [
-                        SizedBox(
-                          height: 150,
-                        ),
-                        SizedBox(
-                            height: 320,
-                            width: 400,
-                            child: Image.asset('images/home_earth.png')
-                        ),
-                        Text(
-                          '해외봉사,',
-                          style: TextStyle(fontSize: 25, color: Colors.brown, fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          '해랑가랑 가자!',
-                          style: TextStyle(fontSize: 25, color: Colors.brown, fontWeight: FontWeight.bold),
-                        ),
-                      ]
-                  )
-              ),
+      body: Column(children: [
+        Container(
+          padding: EdgeInsets.fromLTRB(0.0, 16.0, 16.0, 0.0),
+          child: Center(
+              child: Column(children: [
+            SizedBox(
+              height: 150,
             ),
-          ]
-      ),
+            SizedBox(
+                height: 320,
+                width: 400,
+                child: Image.asset('images/home_earth.png')),
+            Text(
+              '해외봉사,',
+              style: TextStyle(
+                  fontSize: 25,
+                  color: Colors.brown,
+                  fontWeight: FontWeight.bold),
+            ),
+            Text(
+              '해랑가랑 가자!',
+              style: TextStyle(
+                  fontSize: 25,
+                  color: Colors.brown,
+                  fontWeight: FontWeight.bold),
+            ),
+          ])),
+        ),
+      ]),
       resizeToAvoidBottomInset: false,
     );
   }
