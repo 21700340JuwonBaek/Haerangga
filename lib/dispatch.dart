@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:haerangga/dispatchSearch.dart';
 import 'package:haerangga/logic/mysql.dart';
 
-class dispatch extends StatefulWidget {
+class Dispatch extends StatefulWidget {
   @override
-  _dispatchState createState() => _dispatchState();
+  _DispatchState createState() => _DispatchState();
 }
 
-class _dispatchState extends State<dispatch> {
+class _DispatchState extends State<Dispatch> {
   void all_false(Map<int, dynamic> country, bool? res) {
     for (int i = 1; i <= country.length; i++) {
       country.update(i, (value) => res);

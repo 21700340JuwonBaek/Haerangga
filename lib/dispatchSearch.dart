@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:haerangga/logic/mysql.dart';
-import 'package:haerangga/widget/dispatch_tile.dart';
+import 'package:haerangga/widget/dispatchTile.dart';
 
 class dispatchSearch extends StatefulWidget {
   final Map country;
@@ -56,7 +56,7 @@ class _dispatchSearchState extends State<dispatchSearch> {
         itemCount: nation_id.length,
         shrinkWrap: true,
         itemBuilder: (context, index) {
-          return dispatchTile(nation_id[index], nation_list[index]);
+          return DispatchTile(nation_id[index], nation_list[index]);
         });
   }
 
