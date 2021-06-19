@@ -46,8 +46,11 @@ class _SearchedPrograms extends State<SearchedPrograms> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text('해랑가', style: TextStyle(fontSize: 30.0)),
-          backgroundColor: Colors.orange,
+          title: Text('HAERANGGA', style: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+          )),
+          backgroundColor: Colors.deepOrangeAccent,
         ),
         body: ListView.builder(
             itemCount: recruitList.length,

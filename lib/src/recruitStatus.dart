@@ -29,8 +29,11 @@ class _RecruitStatusState extends State<RecruitStatus> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text('해랑가', style: TextStyle(fontSize: 30.0)),
-          backgroundColor: Colors.orange,
+          title: Text('HAERANGGA', style: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+          )),
+          backgroundColor: Colors.deepOrangeAccent,
         ),
         body: SingleChildScrollView(
             scrollDirection: Axis.vertical,
@@ -54,7 +57,7 @@ class _RecruitStatusState extends State<RecruitStatus> {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         textStyle: const TextStyle(fontSize: 20),
-                        primary: Colors.orange,
+                        primary: Colors.deepOrangeAccent,
                       ),
                       child: const Text('Search'),
                       onPressed: () {
@@ -98,7 +101,7 @@ class _RecruitStatusState extends State<RecruitStatus> {
             Checkbox(
               value: selectedNation[0],
               visualDensity: VisualDensity.compact,
-              activeColor: Colors.orange,
+              activeColor: Colors.deepOrangeAccent,
               onChanged: (value) {
                 setState(() {
                   selectedNation[0] = value!;
@@ -132,7 +135,7 @@ class _RecruitStatusState extends State<RecruitStatus> {
             Checkbox(
               value: selectedField[0],
               visualDensity: VisualDensity.compact,
-              activeColor: Colors.orange,
+              activeColor: Colors.deepOrangeAccent,
               onChanged: (value) {
                 setState(() {
                   selectedField[0] = value!;
@@ -164,7 +167,7 @@ class _RecruitStatusState extends State<RecruitStatus> {
             Checkbox(
               value: selectedOrg[0],
               visualDensity: VisualDensity.compact,
-              activeColor: Colors.orange,
+              activeColor: Colors.deepOrangeAccent,
               onChanged: (value) {
                 setState(() {
                   selectedOrg[0] = value!;
@@ -205,12 +208,13 @@ class _RecruitStatusState extends State<RecruitStatus> {
       Checkbox(
         value: targetList[flag1],
         visualDensity: VisualDensity.compact,
-        activeColor: Colors.orange,
+        activeColor: Colors.deepOrangeAccent,
         onChanged: (value) {
           setState(() {
             targetList[flag1] = value!;
             if(!targetList[flag1] && targetList[0]) {
-              for(int i = 0; i < targetList.length; i++) targetList[i] = false;
+              // for(int i = 0; i < targetList.length; i++) targetList[i] = false;
+              targetList[0] = false;
             }
           });
         },
@@ -223,12 +227,13 @@ class _RecruitStatusState extends State<RecruitStatus> {
         Checkbox(
           value: targetList[flag2],
           visualDensity: VisualDensity.compact,
-          activeColor: Colors.orange,
+          activeColor: Colors.deepOrangeAccent,
           onChanged: (value) {
             setState(() {
               targetList[flag2] = value!;
               if(!targetList[flag2] && targetList[0]) {
-                for(int i = 0; i < targetList.length; i++) targetList[i] = false;
+                // for(int i = 0; i < targetList.length; i++) targetList[i] = false;
+                targetList[0] = false;
               }
             });
           },
@@ -242,12 +247,13 @@ class _RecruitStatusState extends State<RecruitStatus> {
         Checkbox(
           value: targetList[flag3],
           visualDensity: VisualDensity.compact,
-          activeColor: Colors.orange,
+          activeColor: Colors.deepOrangeAccent,
           onChanged: (value) {
             setState(() {
               targetList[flag3] = value!;
               if(!targetList[flag3] && targetList[0]) {
-                for(int i = 0; i < targetList.length; i++) targetList[i] = false;
+                // for(int i = 0; i < targetList.length; i++) targetList[i] = false;
+                targetList[0] = false;
               }
             });
           },
