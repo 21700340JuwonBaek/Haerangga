@@ -3,7 +3,6 @@ import 'package:haerangga/logic/mysql.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 class RecruitProgramInfo extends StatefulWidget {
   RecruitProgramInfo({required this.recruitId});
 
@@ -66,19 +65,44 @@ class _RecruitProgramInfoState extends State<RecruitProgramInfo> {
   }
 
   Widget makeText(String contents, {bool? url}) {
-    if(url == true) {
-      return InkWell(
-        onTap: () {
-          _launchURL();
-          print('tapped!');
-        },
-        child: Container(
-          child: Text(
-            contents,
-            style: TextStyle(fontSize: 23.0),
-          ),
-          margin: EdgeInsets.symmetric(vertical: 10.0),
-        )
+    if (url == true) {
+      // return InkWell(
+      //   onTap: () {
+      //     _launchURL();
+      //     print('tapped!');
+      //   },
+      //   child: Container(
+      //     child: Text(
+      //       contents,
+      //       style: TextStyle(fontSize: 23.0),
+      //     ),
+      //     margin: EdgeInsets.symmetric(vertical: 10.0),
+      //   )
+      // );
+      return Container(
+        child: Row(
+          children: <Widget>[
+            Container(
+                child: Text(
+                  contents,
+                  style: TextStyle(fontSize: 23.0),
+                ),
+                width: 230),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                textStyle: const TextStyle(fontSize: 20),
+                primary: Colors.deepOrangeAccent,
+              ),
+              child: const Text('Go!'),
+              onPressed: () {
+                _launchURL();
+              },
+            )
+          ],
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+        ),
+        margin: EdgeInsets.symmetric(vertical: 10.0),
       );
     }
     return Container(
@@ -98,13 +122,16 @@ class _RecruitProgramInfoState extends State<RecruitProgramInfo> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('해랑가', style: TextStyle(fontSize: 30.0)),
-        backgroundColor: Colors.orange,
+        title: Text('HAERANGGA',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+            )),
+        backgroundColor: Colors.deepOrangeAccent,
       ),
       body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -119,7 +146,7 @@ class _RecruitProgramInfoState extends State<RecruitProgramInfo> {
                 makeText('Volunteer Start Date:\n' + rst['startDate']),
                 makeText('Volunteer End Date:\n' + rst['endDate']),
                 makeText('Activity Description:\n' + rst['activities']),
-                makeText('URL:\n'+ rst['url'], url: true),
+                makeText('URL:\n' + rst['url'], url: true),
                 makeText('Contact:\n' + rst['contact']),
               ],
               crossAxisAlignment: CrossAxisAlignment.start,
