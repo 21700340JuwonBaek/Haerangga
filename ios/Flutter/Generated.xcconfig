@@ -1,8 +1,8 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=/Users/jaen2/Development/flutter
-FLUTTER_APPLICATION_PATH=/Users/jaen2/git/Haerangga
+FLUTTER_ROOT=/Users/kimseoye/Developer/flutter
+FLUTTER_APPLICATION_PATH=/Users/kimseoye/Developer/git/Haerangga
 COCOAPODS_PARALLEL_CODE_SIGN=true
-FLUTTER_TARGET=/Users/jaen2/git/Haerangga/lib/main.dart
+FLUTTER_TARGET=/Users/kimseoye/Developer/git/Haerangga/lib/main.dart
 FLUTTER_BUILD_DIR=build
 SYMROOT=${SOURCE_ROOT}/../build/ios
 FLUTTER_BUILD_NAME=1.0.0
@@ -12,4 +12,4 @@ DART_DEFINES=Zmx1dHRlci5pbnNwZWN0b3Iuc3RydWN0dXJlZEVycm9ycz10cnVl,RkxVVFRFUl9XRU
 DART_OBFUSCATION=false
 TRACK_WIDGET_CREATION=true
 TREE_SHAKE_ICONS=false
-PACKAGE_CONFIG=/Users/jaen2/git/Haerangga/.dart_tool/package_config.json
+PACKAGE_CONFIG=/Users/kimseoye/Developer/git/Haerangga/.dart_tool/package_config.json
