@@ -1,21 +1,26 @@
-# haerangga
+# Haerang-ga
 
-A new Flutter project.
+## 1. Introduction
 
-## Getting Started
+Haerang-ga is an application that allows you to easily look up a database that contains various information about overseas services.
 
-This project is a starting point for a Flutter application.
+The reason we made this application is that we are interested in volunteering abroad, 
+and while we were looking for information, we thought it would be nice to have a platform to collect them in one place 
+as there are various sites and information related to overseas volunteering and most of it is scattered, making it difficult to find it at once.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## 2. Getting Started
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 
-    
-### pubspec.ymal파일에 url_launcher: ^6.0.6를 넣어놔서 크래시가 날 가능성이 있습니다.   
+## 3. Major Features
 
-### main은 merge시에 수정학우님 것으로 덮으면 될 것 같습니다. 다만, Dispatch status메뉴라기 보다... 그냥 Dispatch organization 메뉴로 만드는 것이 더 나을 것 같습니다. 
+
+## 4. Used Tools
+
+
+## Developer
+
+21700340 Baek Juwon<br>
+21700151 Kim Jaewon<br>
+21800088 Kim Seoye<br>
+21800464 Yoo Sujeong
