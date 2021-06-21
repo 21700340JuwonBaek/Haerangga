@@ -32,20 +32,20 @@ as there are various sites and information related to overseas volunteering and 
 
 ### 3. Major Features.   
 
-- Searching
-  - Search with filed name : Get information about volunteer fields
-  - Search with organization name : Get information about current volunteer programs of that organization
+- **Searching**
+  - <u>Search with filed name</u> : Get information about volunteer fields
+  - <u>Search with organization name</u> : Get information about current volunteer programs of that organization
 
 
-- Get information about nation
+- **Get information about nation**
   - Information about water, embassy and consulate, cities, literacy rate, currency, nation, language, and climate of selected nation
 
 
-- Get information about recruiting
+- **Get information about recruiting**
   - Information about volunteer programs that currently in the process of recruiting
   - Can search by target nations, volunteer fields, and organization
 
-- Get information about dispatch organization
+- **Get information about dispatch organization**
   - Information about dispatched organizations by nation.
   
 
