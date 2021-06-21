@@ -29,7 +29,10 @@ as there are various sites and information related to overseas volunteering and 
 - run `flutter pub get` in the terminal
 - Click 'Get dependencies' button in Android Studio
 4. Connect your android phone or use the emulator to start the application
-5. Run application
+5. Run application     
+
+#### Notation
+ - If the version of Flutter SDK and Dart is Different with the above, error could be occured.
   
 
 
@@ -69,15 +72,3 @@ as there are various sites and information related to overseas volunteering and 
   
 <hr>
 
-## Flutter
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
