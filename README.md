@@ -2,7 +2,7 @@
   
 Haerang-ga : 해외봉사 이 어플이랑 가자 (Let's go overseas with this application.)
   
----
+___
   
 ### 1. Introduction.  
   
@@ -12,7 +12,7 @@ The reason we made this application is that we are interested in volunteering ab
 and while we were looking for information, we thought it would be nice to have a platform to collect them in one place 
 as there are various sites and information related to overseas volunteering and most of it is scattered, making it difficult to find it at once.
 
----
+___
 
 ### 2. Getting Started.  
 0. You have to install some tools at first.
@@ -28,7 +28,7 @@ as there are various sites and information related to overseas volunteering and 
 4. Connect your android phone or use the emulator to start the application
 5. Run application
   
----
+___
 
 ### 3. Major Features.   
 
@@ -48,7 +48,7 @@ as there are various sites and information related to overseas volunteering and 
 - Get information about dispatch organization
   - Information about dispatched organizations by nation.
   
----
+___
 
 ### 4. Used Tools.   
   
@@ -56,7 +56,7 @@ as there are various sites and information related to overseas volunteering and 
 [AWS](https://aws.amazon.com/ko/)  
 [MySQL](https://www.mysql.com/) 
  
----
+___
 
 #### Developer
 김재원(Kim Jaewon), 백주원(Baek Juwon), 유수정(Yoo Sujeong), 김서예(Kim Seo-ye)
