@@ -1,6 +1,8 @@
 # HAERANG-GA
-
+  
+  
 ### 1. Introduction.  
+  
 0. You have to install some tools at first.
 - Android Studio
 - Flutter SDK version 2.2.1
@@ -16,22 +18,25 @@
   
 ### 2. Getting Started.  
   
+  
 ### 3. Major Features.   
   
+  
 ### 4. Used Tools.   
-
+  
 [flutter](https://flutter.dev/)  
 [AWS](https://aws.amazon.com/ko/)  
 [MySQL](https://www.mysql.com/) 
   
   
+    
   
 #### Developer
 김재원, 백주원, 유수정, 이혜림
-
-
-
-
+  
+  
+  
+  
 <hr>
 A new Flutter project.
 
