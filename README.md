@@ -2,6 +2,7 @@
   
 Haerang-ga : 해외봉사 이 어플이랑 가자 (Let's go overseas with this application.)
   
+  
 ### 1. Introduction.  
   
 Haerang-ga is an application that allows you to easily look up a database that contains various information about overseas services.
@@ -29,10 +30,21 @@ as there are various sites and information related to overseas volunteering and 
 ### 3. Major Features.   
 
 - Searching
-  - Can search with field name or organization name
+  - Search with filed name : Get information about volunteer fields
+  - Search with organization name : Get information about current volunteer programs of that organization
+
+
 - Get information about nation
+  - Information about water, embassy and consulate, cities, literacy rate, currency, nation, language, and climate of selected nation
+
+
 - Get information about recruiting
+  - Information about volunteer programs that currently in the process of recruiting
+  - Can search by target nations, volunteer fields, and organization
+
 - Get information about dispatch organization
+  - Information about dispatched organizations by nation.
+  
   
 ### 4. Used Tools.   
   
