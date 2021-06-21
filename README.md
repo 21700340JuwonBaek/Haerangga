@@ -1,5 +1,6 @@
 # HAERANG-GA
   
+Haerang-ga : 해외봉사 이 어플이랑 가자 (Let's go overseas with this application.)
   
 ### 1. Introduction.  
   
@@ -26,7 +27,12 @@ as there are various sites and information related to overseas volunteering and 
   
   
 ### 3. Major Features.   
-  
+
+- Searching
+  - Can search with field name or organization name
+- Get information about nation
+- Get information about recruiting
+- Get information about dispatch organization
   
 ### 4. Used Tools.   
   
@@ -38,7 +44,7 @@ as there are various sites and information related to overseas volunteering and 
  
  
 #### Developer
-김재원, 백주원, 유수정, 이혜림
+김재원(Kim Jaewon), 백주원(Baek Juwon), 유수정(Yoo Sujeong), 김서예(Kim Seo-ye)
   
   
   
@@ -58,8 +64,3 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-
-    
-### pubspec.ymal파일에 url_launcher: ^6.0.6를 넣어놔서 크래시가 날 가능성이 있습니다.   
-
-### main은 merge시에 수정학우님 것으로 덮으면 될 것 같습니다. 다만, Dispatch status메뉴라기 보다... 그냥 Dispatch organization 메뉴로 만드는 것이 더 나을 것 같습니다. 
