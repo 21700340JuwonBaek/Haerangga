@@ -27,10 +27,10 @@
 [flutter](https://flutter.dev/)  
 [AWS](https://aws.amazon.com/ko/)  
 [MySQL](https://www.mysql.com/) 
-  
-  
-    
-  
+ 
+ 
+ 
+ 
 #### Developer
 김재원, 백주원, 유수정, 이혜림
   
