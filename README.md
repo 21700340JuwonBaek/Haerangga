@@ -3,6 +3,9 @@
   
 ### 1. Introduction.  
   
+
+  
+### 2. Getting Started.  
 0. You have to install some tools at first.
 - Android Studio
 - Flutter SDK version 2.2.1
@@ -15,8 +18,6 @@
 - Click 'Get dependencies' button in Android Studio
 4. Connect your android phone or use the emulator to start the application
 5. Run application
-  
-### 2. Getting Started.  
   
   
 ### 3. Major Features.   
