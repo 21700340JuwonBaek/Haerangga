@@ -65,9 +65,7 @@ as there are various sites and information related to overseas volunteering and 
   
   
 <hr>
-A new Flutter project.
-
-## Getting Started
+## Flutter
 
 This project is a starting point for a Flutter application.
 
