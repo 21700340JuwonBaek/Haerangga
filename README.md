@@ -1,5 +1,38 @@
-# haerangga
+# HAERANG-GA
 
+### 1. Introduction.  
+0. You have to install some tools at first.
+- Android Studio
+- Flutter SDK version 2.2.1
+- Dart 2.13.1
+1. Clone project
+- run `git clone [https://github.com/21700340JuwonBaek/Haerangga.git](https://github.com/21700340JuwonBaek/Haerangga.git)` in the terminal
+2. Open project in Android Studio
+3. Get dependencies
+- run `flutter pub get` in the terminal
+- Click 'Get dependencies' button in Android Studio
+4. Connect your android phone or use the emulator to start the application
+5. Run application
+  
+### 2. Getting Started.  
+  
+### 3. Major Features.   
+  
+### 4. Used Tools.   
+
+[flutter](https://flutter.dev/)  
+[AWS](https://aws.amazon.com/ko/)  
+[MySQL](https://www.mysql.com/) 
+  
+  
+  
+#### Developer
+김재원, 백주원, 유수정, 이혜림
+
+
+
+
+<hr>
 A new Flutter project.
 
 ## Getting Started
