@@ -33,8 +33,8 @@ as there are various sites and information related to overseas volunteering and 
 ### 3. Major Features.   
 
 - **Searching**
-  - <u>Search with filed name</u> : Get information about volunteer fields
-  - <u>Search with organization name</u> : Get information about current volunteer programs of that organization
+  - Search with filed name : Get information about volunteer fields
+  - Search with organization name : Get information about current volunteer programs of that organization
 
 
 - **Get information about nation**
